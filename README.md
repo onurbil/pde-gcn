@@ -2,7 +2,14 @@
 Implementation code of the paper: "Learning solution to partial differential equations using Graph Convolution Network" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
 
 
-![pde-gcn](methodology.png)
+## Methodology
+![pde-gcn](images/methodology.png)
+
+## Model Architecture
+![pde-gcn <](images/architecture.png)
+<br />
+<br />
+![pde-gcn >](images/ensemble.png)
 
 
 ## Usage
