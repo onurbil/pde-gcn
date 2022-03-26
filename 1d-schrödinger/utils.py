@@ -70,6 +70,31 @@ def plot_2D(x1,y1, x2,y2,name='plot.pdf',label1='Pred', label2='True'):
     fig.savefig(name, bbox_inches='tight')
     plt.show()
     
+
+def plot_2D_res(x1,y1,name='res_plot.pdf',label1='Residual'):
+
+    font = {'family' : 'normal',
+            'weight' : 'normal',
+            'size'   : 16}
+
+    mpl.rc('font', **font)
+
+    mpl.use('TkAgg')
+    sns.set_style("dark")
+    fig, ax = plt.subplots()
+
+    ax.plot(x1, y1,'g', label=label1)
+
+    ax.set_xlabel('x', fontsize=16)
+    ax.set_ylabel('u(x,t) - û(x,t)', fontsize=16)
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+    
+    ax.grid()
+    plt.legend(loc="upper right", facecolor='white', framealpha=1)
+    fig.savefig(name, bbox_inches='tight')
+    plt.show()
+
     
 def plot_3D(U_plot, name='plot_residual.pdf'):
 
@@ -98,7 +123,7 @@ def plot_3D(U_plot, name='plot_residual.pdf'):
 
 
     ax.set_ylabel('t',labelpad=16)
-    ax.set_zlabel('Δu',labelpad=50)
+    ax.set_zlabel('u(x,t) - û(x,t)',labelpad=50)
     ax.tick_params(axis='z', which='major', pad=26)
     
     fig.colorbar(surf, ax=ax, shrink=0.75)

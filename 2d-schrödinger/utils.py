@@ -74,10 +74,10 @@ def plot_3D(U_plot, name='plot_residual.pdf'):
 
 
     ax.set_ylabel('y',labelpad=16)
-    ax.set_zlabel('Δu',labelpad=50)
+    ax.set_zlabel('u(x,t) - û(x,t)',labelpad=60)
     ax.tick_params(axis='z', which='major', pad=28)
     
-    fig.colorbar(surf, ax=ax, shrink=0.75)
+    fig.colorbar(surf, ax=ax, shrink=0.75,pad=0.1)
 
     plt.savefig(name, bbox_inches='tight')
     plt.show()

@@ -305,9 +305,9 @@ def test_model(model_input,true_u, true_v):
     true_u = np.reshape(true_u,(xy_count,xy_count))
     true_v = np.reshape(true_v,(xy_count,xy_count))
 
-    u_plot = np.sqrt(np.square(true_u-u_pred) + np.square(true_v-v_pred))
-
-    u_plot = u_plot.detach().cpu().numpy()
+    psi_pred_arr = np.sqrt(u_pred**2 + v_pred**2)
+    psi_arr = np.sqrt(true_u**2 + true_v**2)
+    u_plot = np.array(psi_arr-psi_pred_arr)
     
     plot_3D(u_plot,name='3d-plot_gcn_2d-schrödinger.pdf')    
     

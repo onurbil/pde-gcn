@@ -306,9 +306,9 @@ def test_model(true_re,true_im):
     true_re = np.reshape(true_re,(xy_count,xy_count))
     true_im = np.reshape(true_im,(xy_count,xy_count))
 
-    u_plot = np.sqrt(np.square(true_re-u_pred) + np.square(true_im-v_pred))
-
-    u_plot = u_plot.detach().cpu().numpy()
+    psi_pred_arr = np.sqrt(u_pred**2 + v_pred**2)
+    psi_arr = np.sqrt(true_re**2 + true_im**2)
+    u_plot = np.array(psi_arr-psi_pred_arr)
 
     plot_3D(u_plot,name='3d-plot_ens_2d-schrödinger.pdf')    
 
