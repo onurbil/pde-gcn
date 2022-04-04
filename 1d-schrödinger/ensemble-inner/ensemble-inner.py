@@ -14,7 +14,7 @@ import dgl
 
 sys.path.append('../')
 from models import ANN_Model, GCN, Ensemble
-from utils import create_graph, plot_2D, plot_3D
+from utils import create_graph, plot_2D, plot_3D, plot_2D_res
 
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -316,7 +316,11 @@ def test_model():
 
         psi_pred = np.sqrt(u_pred[k*nx:l*nx]**2 + v_pred[k*nx:l*nx]**2)
         psi = np.sqrt(true_u[k*nx:l*nx]**2 + true_v[k*nx:l*nx]**2)
-        plot_2D(x_axis,psi_pred,x_axis, psi,name='t{}_ens_1d-schrödinger_in.pdf'.format(t),label1='Ensemble', label2='True')
+        plot_2D(x_axis,psi_pred,x_axis, psi,name='t{}_ens_1d-schrödinger_in.pdf'.format(t),label1='GCN-FFNN', label2='True')
+        r = psi - psi_pred
+        plot_2D_res(x_axis, r,name='t{}_ens_1d-schrödinger_in_res.pdf'.format(t),label1='Residual')
+
+
 
     psi_pred = np.sqrt(u_pred**2 + v_pred**2)
     psi = np.sqrt(true_u**2 + true_v**2)

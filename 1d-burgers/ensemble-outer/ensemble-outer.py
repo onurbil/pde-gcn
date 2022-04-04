@@ -14,7 +14,7 @@ import dgl
 
 sys.path.append('../')
 from models import ANN_Model, GCN, Ensemble
-from utils import create_graph, plot_2D, plot_3D
+from utils import create_graph, plot_2D, plot_3D, plot_2D_res
 
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -232,10 +232,17 @@ def test_model():
     u75 = u_pred[75*nx:76*nx]
     u99 = u_pred[99*nx:100*nx] 
 
-    plot_2D(x_axis, u50,x_axis, y50,name='t050_ens_out.pdf',label1='Ensemble', label2='True')
-    plot_2D(x_axis, u75,x_axis, y75,name='t075_ens_out.pdf',label1='Ensemble', label2='True')
-    plot_2D(x_axis, u99,x_axis, y99,name='t099_ens_out.pdf',label1='Ensemble', label2='True')
+    plot_2D(x_axis, u50,x_axis, y50,name='t050_ens_out.pdf',label1='GCN-FFNN', label2='True')
+    plot_2D(x_axis, u75,x_axis, y75,name='t075_ens_out.pdf',label1='GCN-FFNN', label2='True')
+    plot_2D(x_axis, u99,x_axis, y99,name='t099_ens_out.pdf',label1='GCN-FFNN', label2='True')
 
+    r50 = y50-u50
+    r75 = y75-u75
+    r99 = y99-u99
+    
+    plot_2D_res(x_axis, r50,name='t050_ens_out_res.pdf',label1='Residual')
+    plot_2D_res(x_axis, r75,name='t075_ens_out_res.pdf',label1='Residual')
+    plot_2D_res(x_axis, r99,name='t099_ens_out_res.pdf',label1='Residual')
 
     u_plot = np.array(true_data-u_pred)
     u_plot = u_plot.reshape(nt,nx)

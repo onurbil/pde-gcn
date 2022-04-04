@@ -54,8 +54,8 @@ def plot_2D(x1,y1, x2,y2,name='plot.pdf',label1='Pred', label2='True'):
     sns.set_style("dark")
     fig, ax = plt.subplots()
 
-    ax.plot(x1, y1, label=label1)
     ax.plot(x2, y2, label=label2)
+    ax.plot(x1, y1, label=label1, linestyle='dashed')
 
     ax.set_xlabel('x', fontsize=16)
     ax.set_ylabel('u(x,t)', fontsize=16)
