@@ -227,6 +227,7 @@ model2.load_state_dict(torch.load(MODEL_PATH2, map_location=torch.device('cpu'))
 
 def get_train_samples(nx,nt,samp_size):
     samples = random.sample(range(0, nx), samp_size)
+    # print(samples)
     test = np.ones(nx)
     test[samples]=0
     test = np.tile(test,nt)
@@ -300,27 +301,28 @@ def test_model():
         f.write('test loss: {}\n'.format(test_loss.item()))
         f.write('infinite norm: {}'.format(max_loss.item()))
 
-
-    x_axis = inputs[:nx,0]
+    x_axis = inputs[::nx,1]
+    x_axis = x_axis[1:]
 
     u_pred = u_pred.detach().numpy()
     v_pred = v_pred.detach().numpy()
 
-    
-    to_print = [14,102,200]
-    time = ['011','080','157']
+    #x-values: 93: -1.36718750, 128: 0, 168: 1.56250000    
+    to_print = [93,128,168]
+    space = ['1','2','3']
+
     for i in range(len(to_print)):
         k = to_print[i]
-        l = k+1
-        t = time[i]
-
-        psi_pred = np.sqrt(u_pred[k*nx:l*nx]**2 + v_pred[k*nx:l*nx]**2)
-        psi = np.sqrt(true_u[k*nx:l*nx]**2 + true_v[k*nx:l*nx]**2)
-        plot_2D(x_axis,psi_pred,x_axis, psi,name='t{}_ens_1d-schrödinger_in.pdf'.format(t),label1='GCN-FFNN', label2='True')
+        x = space[i]
+    
+        psi_pred = np.sqrt(u_pred[k::nx]**2 + v_pred[k::nx]**2)
+        psi = np.sqrt(true_u[k::nx]**2 + true_v[k::nx]**2)
+        psi_pred = psi_pred[1:]        
+        psi = psi[1:]
+        plot_2D(x_axis,psi_pred,x_axis, psi,name='x{}_ens_1d-schrödinger_in.pdf'.format(x),label1='GCN-FFNN', label2='True')
+        
         r = psi - psi_pred
-        plot_2D_res(x_axis, r,name='t{}_ens_1d-schrödinger_in_res.pdf'.format(t),label1='Residual')
-
-
+        plot_2D_res(x_axis, r,name='r{}_ens_1d-schrödinger_in_res.pdf'.format(x),label1='Residual')
 
     psi_pred = np.sqrt(u_pred**2 + v_pred**2)
     psi = np.sqrt(true_u**2 + true_v**2)

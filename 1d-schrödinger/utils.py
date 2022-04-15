@@ -66,7 +66,7 @@ def plot_2D(x1,y1, x2,y2,name='plot.pdf',label1='Pred', label2='True'):
     plt.yticks(fontsize=16)
 
     ax.grid()
-    plt.legend(loc="upper right", facecolor='white', framealpha=1)
+    plt.legend(facecolor='white', framealpha=1)
     fig.savefig(name, bbox_inches='tight')
     plt.show()
     
@@ -91,7 +91,7 @@ def plot_2D_res(x1,y1,name='res_plot.pdf',label1='Residual'):
     plt.yticks(fontsize=16)
     
     ax.grid()
-    plt.legend(loc="upper right", facecolor='white', framealpha=1)
+    plt.legend(facecolor='white', framealpha=1)
     fig.savefig(name, bbox_inches='tight')
     plt.show()
 

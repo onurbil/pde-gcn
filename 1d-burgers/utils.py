@@ -57,13 +57,13 @@ def plot_2D(x1,y1, x2,y2,name='plot.pdf',label1='Pred', label2='True'):
     ax.plot(x2, y2, label=label2)
     ax.plot(x1, y1, label=label1, linestyle='dashed')
 
-    ax.set_xlabel('x', fontsize=16)
+    ax.set_xlabel('t', fontsize=16)
     ax.set_ylabel('u(x,t)', fontsize=16)
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     
     ax.grid()
-    plt.legend(loc="upper right", facecolor='white', framealpha=1)
+    plt.legend(facecolor='white', framealpha=1)
     fig.savefig(name, bbox_inches='tight')
     plt.show()
 
@@ -82,13 +82,13 @@ def plot_2D_res(x1,y1,name='res_plot.pdf',label1='Residual'):
 
     ax.plot(x1, y1,'g', label=label1)
 
-    ax.set_xlabel('x', fontsize=16)
+    ax.set_xlabel('t', fontsize=16)
     ax.set_ylabel('u(x,t) - û(x,t)', fontsize=16)
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     
     ax.grid()
-    plt.legend(loc="lower right", facecolor='white', framealpha=1)
+    plt.legend(facecolor='white', framealpha=1)
     fig.savefig(name, bbox_inches='tight')
     plt.show()
     

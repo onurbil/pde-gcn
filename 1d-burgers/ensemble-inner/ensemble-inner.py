@@ -234,27 +234,34 @@ def test_model():
 
     u_pred = u_pred.cpu().detach().numpy()
 
-    x_axis = inputs[:nx,0].cpu()
+    # x-values: 52: -0.59215689,  147: 0.15294118,  247:0.93725491
+    x_axis = inputs[::nx,1].cpu()
+    x_axis = x_axis[1:]
+            
+    y1 = true_data[52::nx]
+    y1 = y1[1:]
+    y2 = true_data[147::nx]
+    y2 = y2[1:]
+    y3 = true_data[247::nx]
+    y3 = y3[1:]
 
-    y50=true_data[50*nx:51*nx]
-    y75=true_data[75*nx:76*nx]
-    y99=true_data[99*nx:100*nx]
+    u1 = u_pred[52::nx]
+    u1 = u1[1:]
+    u2 = u_pred[147::nx]
+    u2 = u2[1:]
+    u3 = u_pred[247::nx]
+    u3 = u3[1:]
+    plot_2D(x_axis, u1,x_axis, y1,name='x1_ens_in.pdf',label1='GCN-FFNN', label2='True')
+    plot_2D(x_axis, u2,x_axis, y2,name='x2_ens_in.pdf',label1='GCN-FFNN', label2='True')
+    plot_2D(x_axis, u3,x_axis, y3,name='x3_ens_in.pdf',label1='GCN-FFNN', label2='True')
+
+    r1 = y1-u1
+    r2 = y2-u2
+    r3 = y3-u3
     
-    u50 = u_pred[50*nx:51*nx]
-    u75 = u_pred[75*nx:76*nx]
-    u99 = u_pred[99*nx:100*nx] 
-
-    plot_2D(x_axis, u50,x_axis, y50,name='t050_ens_in.pdf',label1='GCN-FFNN', label2='True')
-    plot_2D(x_axis, u75,x_axis, y75,name='t075_ens_in.pdf',label1='GCN-FFNN', label2='True')
-    plot_2D(x_axis, u99,x_axis, y99,name='t099_ens_in.pdf',label1='GCN-FFNN', label2='True')
-
-    r50 = y50-u50
-    r75 = y75-u75
-    r99 = y99-u99
-    
-    plot_2D_res(x_axis, r50,name='t050_ens_in_res.pdf',label1='Residual')
-    plot_2D_res(x_axis, r75,name='t075_ens_in_res.pdf',label1='Residual')
-    plot_2D_res(x_axis, r99,name='t099_ens_in_res.pdf',label1='Residual')
+    plot_2D_res(x_axis, r1,name='r1_ens_in_res.pdf',label1='Residual')
+    plot_2D_res(x_axis, r2,name='r2_ens_in_res.pdf',label1='Residual')
+    plot_2D_res(x_axis, r3,name='r3_ens_in_res.pdf',label1='Residual')
 
     u_plot = np.array(true_data-u_pred)
     u_plot = u_plot.reshape(nt,nx)
