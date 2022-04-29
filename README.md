@@ -1,5 +1,5 @@
 ## PDE-GCN
-Implementation code of the paper: "Learning solution to partial differential equations using Graph Convolution Network" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
+Implementation code of the paper: "GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
 
 
 ## Methodology
