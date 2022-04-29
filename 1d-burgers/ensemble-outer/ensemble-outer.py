@@ -45,7 +45,7 @@ true_values = torch.FloatTensor(true_values).to(device)
 nx=256
 nt=100
 train_size = int(nx*nt*0.9)
-    
+
 g = create_graph(nx,nt, k=1).to(device)
 
 edges = g.edges()

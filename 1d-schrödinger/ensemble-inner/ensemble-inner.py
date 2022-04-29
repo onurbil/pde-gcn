@@ -227,7 +227,6 @@ model2.load_state_dict(torch.load(MODEL_PATH2, map_location=torch.device('cpu'))
 
 def get_train_samples(nx,nt,samp_size):
     samples = random.sample(range(0, nx), samp_size)
-    # print(samples)
     test = np.ones(nx)
     test[samples]=0
     test = np.tile(test,nt)
@@ -307,10 +306,10 @@ def test_model():
     u_pred = u_pred.detach().numpy()
     v_pred = v_pred.detach().numpy()
 
-    #x-values: 93: -1.36718750, 128: 0, 168: 1.56250000    
-    to_print = [93,128,168]
+    #x-values: 98: -1.17187500, 128: 0, 168: 1.56250000    
+    to_print = [98,128,168]
     space = ['1','2','3']
-
+    
     for i in range(len(to_print)):
         k = to_print[i]
         x = space[i]

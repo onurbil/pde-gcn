@@ -52,8 +52,6 @@ g = create_graph(nx,nt, k=1).to(device)
 edges = g.edges()
 n_edges = g.number_of_edges()
 
-
-
 degs = g.in_degrees().float()
 norm = torch.pow(degs, -0.5)
 norm[torch.isinf(norm)] = 0
@@ -234,18 +232,19 @@ def test_model():
 
     u_pred = u_pred.cpu().detach().numpy()
 
-    # x-values: 52: -0.59215689,  147: 0.15294118,  247:0.93725491
+    # x-values: 108: -0.15294118,  147: 0.15294118,  247:0.93725491
     x_axis = inputs[::nx,1].cpu()
+        
     x_axis = x_axis[1:]
             
-    y1 = true_data[52::nx]
+    y1 = true_data[108::nx]
     y1 = y1[1:]
     y2 = true_data[147::nx]
     y2 = y2[1:]
     y3 = true_data[247::nx]
     y3 = y3[1:]
 
-    u1 = u_pred[52::nx]
+    u1 = u_pred[108::nx]
     u1 = u1[1:]
     u2 = u_pred[147::nx]
     u2 = u2[1:]
