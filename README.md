@@ -13,7 +13,7 @@ Implementation code of the paper: "GCN-FFNN: A Two-Stream Deep Model for Learnin
 ## Usage
 Install the required packages with `pip install -r requirements.txt`.
 
-Navigate to the desired folder, e.g. `pde-gcn/1d-burgers/ensemble-outer/`.
+Navigate to the desired folder, e.g. `pde-gcn/1d-burgers/ensemble-inner/`.
 
 For training run, e.g.:
 ```
