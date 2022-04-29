@@ -1,29 +1,27 @@
-## PDE-GCN
-Implementation code of the paper: "Learning solution to partial differential equations using Graph Convolution Network" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
+## GCN-FFNN
+Implementation code of the paper: "GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
 
 
 ## Methodology
 ![pde-gcn](images/methodology.png)
+<br />
 
-## Model Architecture
+## GCN Architecture
 ![pde-gcn <](images/architecture.png)
 <br />
-<br />
-![pde-gcn >](images/ensemble.png)
-
 
 ## Usage
 Install the required packages with `pip install -r requirements.txt`.
 
-Navigate to the desired folder, e.g. `pde-gcn/1d-burgers/gcn-outer/`.
+Navigate to the desired folder, e.g. `pde-gcn/1d-burgers/ensemble-outer/`.
 
 For training run, e.g.:
 ```
-python gcn-1d-burgers-outer.py
+python ensemble-inner.py
 ```
 For testing run, e.g.:
 ```
-python gcn-1d-burgers-outer.py --test
+python ensemble-inner.py --test
 ```
 
 
