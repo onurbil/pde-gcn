@@ -25,9 +25,13 @@ python ensemble-inner.py --test
 ```
 
 
-<!-- 
 ## Citation 
-please cite the paper using the following bibtex reference:
+Please cite the paper using the following bibtex reference:
 ```
+@inproceedings{Bilgin2022GCNFFNNAT,
+  title={GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations},
+  author={Onur Bilgin and Thomas Vergutz and Siamak Mehrkanoon},
+  year={2022}
+}
 ```
--->
+
