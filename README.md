@@ -1,5 +1,5 @@
 ## GCN-FFNN
-Implementation code of the paper: "GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations" [(ArXiv link)](https://arxiv.org/abs/2106.14742).
+Official implementation code of the paper: "GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations" [(ArXiv link)](https://arxiv.org/abs/2204.13744).
 
 
 ## Methodology
@@ -27,6 +27,7 @@ python ensemble-inner.py --test
 
 <!-- 
 ## Citation 
+please cite the paper using the following bibtex reference:
 ```
 ```
 -->
