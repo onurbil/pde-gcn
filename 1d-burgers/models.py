@@ -56,63 +56,6 @@ class ANN_Model(nn.Module):
         return x
 
 
-class ANN_RES_Model(nn.Module):
-    
-    def __init__(self,input_feat, hidden, output_feat):
-        super(ANN_RES_Model, self).__init__()
-
-
-        self.dense1 = nn.Linear(input_feat,hidden)
-        self.dense2 = nn.Linear(hidden,hidden)
-        self.dense3 = nn.Linear(hidden,hidden)
-        self.dense4 = nn.Linear(hidden,hidden)
-        self.dense5 = nn.Linear(hidden,hidden)
-        self.dense6 = nn.Linear(hidden,hidden)
-        self.dense7 = nn.Linear(hidden,hidden)
-        self.dense8 = nn.Linear(hidden,output_feat)
-
-
-
-    def forward(self, x):
-        
-        x = self.dense1(x)
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense2(x)
-        x = x + res
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense3(x)
-        x = x + res
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense4(x)
-        x = x + res
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense5(x)
-        x = x + res
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense6(x)
-        x = x + res
-        x = torch.tanh(x)
-
-        res = x
-        x = self.dense7(x)
-        x = x + res
-        x = torch.tanh(x)
-          
-        x = self.dense8(x)
-        
-        return x
-
-
 def conv_init(conv):
     nn.init.kaiming_normal_(conv.weight, mode='fan_out')
     nn.init.constant_(conv.bias, 0)
