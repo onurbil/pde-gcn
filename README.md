@@ -37,17 +37,14 @@ python ensemble-inner.py --test
 Please cite the paper using the following bibtex reference:
 ```
 @article{BILGIN2022131,
-
 title = {GCN-FFNN: A two-stream deep 
 model for learning solution to partial 
 differential equations},
 journal = {Neurocomputing},
 volume = {511},
 pages = {131-141},
-
 year = {2022},
 issn = {0925-2312},
-
 author = {Onur Bilgin and Thomas Vergutz 
 and Siamak Mehrkanoon},
 }
