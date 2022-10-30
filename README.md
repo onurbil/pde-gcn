@@ -36,13 +36,20 @@ python ensemble-inner.py --test
 ## Citation 
 Please cite the paper using the following bibtex reference:
 ```
-@misc{https://doi.org/10.48550/arxiv.2204.13744,
-  doi = {10.48550/ARXIV.2204.13744},
-  url = {https://arxiv.org/abs/2204.13744},
-  author = {Bilgin, Onur and Vergutz, Thomas and Mehrkanoon, Siamak},
-  title = {GCN-FFNN: A Two-Stream Deep Model for Learning Solution to Partial Differential Equations},
-  publisher = {arXiv},
-  year = {2022},
+@article{BILGIN2022131,
+
+title = {GCN-FFNN: A two-stream deep 
+model for learning solution to partial 
+differential equations},
+journal = {Neurocomputing},
+volume = {511},
+pages = {131-141},
+
+year = {2022},
+issn = {0925-2312},
+
+author = {Onur Bilgin and Thomas Vergutz 
+and Siamak Mehrkanoon},
 }
 ```
 
